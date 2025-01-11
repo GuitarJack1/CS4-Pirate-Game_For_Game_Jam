@@ -15,12 +15,12 @@ public class Player_Movement : MonoBehaviour
     public float lookSpeed = 2.0f;
     public float upDownLimit = 60.0f;
     public float groundDrag = 0;
+    public float airDrag = 0;
     private Player_Input controls;
 
     public bool grounded = false;
     Rigidbody rb;
     Vector2 rotation = Vector2.zero;
-    float maxVelocityChange = 10.0f;
 
     void Awake()
     {
@@ -47,18 +47,20 @@ public class Player_Movement : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(0f, mouseVector.x * lookSpeed, 0f);
         transform.rotation = transform.rotation * localRotation;
+
+        SpeedLimit();
     }
 
     void FixedUpdate()
     {
+        Vector2 movementInputVector = controls.Player.Movement.ReadValue<Vector2>();
+        Vector3 movementDirection = transform.forward * movementInputVector.y + transform.right * movementInputVector.x;
+
+        rb.AddForce(movementDirection.normalized * speedForce, ForceMode.Acceleration);
+
         if (grounded)
         {
             rb.linearDamping = groundDrag;
-
-            Vector2 movementInputVector = controls.Player.Movement.ReadValue<Vector2>();
-            Vector3 movementDirection = transform.forward * movementInputVector.y + transform.right * movementInputVector.x;
-
-            rb.AddForce(movementDirection.normalized * speedForce);
 
             if (controls.Player.Jump.IsPressed() && grounded)
             {
@@ -68,10 +70,8 @@ public class Player_Movement : MonoBehaviour
         }
         else
         {
-            rb.linearDamping = 0;
+            rb.linearDamping = airDrag;
         }
-
-        SpeedLimit();
     }
 
     void SpeedLimit()
@@ -80,7 +80,7 @@ public class Player_Movement : MonoBehaviour
 
         if (flatVel.magnitude > maxSpeed)
         {
-            Vector3 newVel = flatVel.normalized * speedForce;
+            Vector3 newVel = flatVel.normalized * maxSpeed;
             rb.linearVelocity = new Vector3(newVel.x, rb.linearVelocity.y, newVel.z);
         }
 

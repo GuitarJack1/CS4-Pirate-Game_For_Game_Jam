@@ -638,13 +638,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779877a176a2e3a4cbde41140a9255b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedForce: 25
+  speedForce: 50
   maxSpeed: 15
-  jumpHeight: 2
+  jumpHeight: 4
   playerCamera: {fileID: 330585545}
   lookSpeed: 0.3
   upDownLimit: 60
-  groundDrag: 1
+  groundDrag: 3
+  grounded: 0
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
