@@ -25,7 +25,7 @@ public class Floater : MonoBehaviour
             float displacementMultiplier = Mathf.Clamp01((waveHeight - transform.position.y )/ depthBeforeSubmerged) * displacementAmount;
 
             rigidBody.AddForceAtPosition(new Vector3(0f, Mathf.Abs(Physics.gravity.y) * displacementMultiplier, 0f), transform.position, ForceMode.Acceleration);
-            rigidBody.AddForce(-rigidBody.velocity.normalized * waterDrag * rigidBody.velocity.sqrMagnitude * displacementMultiplier * Time.fixedDeltaTime, ForceMode.Force);
+            rigidBody.AddForce(-rigidBody.linearVelocity.normalized * waterDrag * rigidBody.linearVelocity.sqrMagnitude * displacementMultiplier * Time.fixedDeltaTime, ForceMode.Force);
             rigidBody.AddTorque(-rigidBody.angularVelocity * waterAngularDrag * displacementMultiplier * Time.fixedDeltaTime, ForceMode.Force);
         }
 
