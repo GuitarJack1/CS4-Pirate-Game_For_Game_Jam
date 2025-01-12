@@ -59,7 +59,7 @@ Material:
     - _: 1
     - _Caustic_Depth: 9.54
     - _Depth: 0.5
-    - _Displacement_Multiplier: 0.34
+    - _Displacement_Multiplier: 0.15
     - _Distance: 1.59
     - _Edge_Amount: 2.2
     - _Edge_Cutoff: 4.8
@@ -72,8 +72,8 @@ Material:
     - _Refraction_Scale: 28.6
     - _Refraction_Speed: 0.91
     - _Refraction_Strength: 0.0064
-    - _Ripple_Density: 8.14
-    - _Ripple_Slimness: 4.75
+    - _Ripple_Density: 8.28
+    - _Ripple_Slimness: 10.8
     - _Strength: 0.26
     - _Water_Tiling_Speed: 0.84
     m_Colors:
