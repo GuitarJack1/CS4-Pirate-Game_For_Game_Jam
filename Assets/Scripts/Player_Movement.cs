@@ -8,19 +8,41 @@ using UnityEngine.InputSystem;
 
 public class Player_Movement : MonoBehaviour
 {
-    public float speedForce = 15.0f;
-    public float maxSpeed = 15.0f;
-    public float jumpHeight = 2.0f;
-    public Camera playerCamera;
-    public float lookSpeed = 2.0f;
-    public float upDownLimit = 60.0f;
-    public float groundDrag = 0;
-    public float airDrag = 0;
-    private Player_Input controls;
+    [Header("Movement Settings")]
+    [SerializeField]
+    private float speedForce = 40f;
+    [SerializeField]
+    private float maxSpeed = 15f;
+    [SerializeField]
+    private float jumpHeight = 4f;
+    [SerializeField]
+    private float fallMultiplier = 3f;
+    [SerializeField]
+    private float lowJumpMultiplier = 2f;
+    [SerializeField]
+    private float groundDrag = 3f;
+    [SerializeField]
+    private float airDrag = 4f;
 
-    public bool grounded = false;
+    [Header("Interaction Settings")]
+    [SerializeField]
+    private LayerMask groundMask;
+
+    [Header("Game Objects")]
+    [SerializeField]
+    private Camera playerCamera;
+
+    [Header("Camera Settings")]
+    [SerializeField]
+    private float lookSpeed = 0.5f;
+    [SerializeField]
+    private float upDownLimit = 90f;
+
+    private Player_Input controls;
     Rigidbody rb;
     Vector2 rotation = Vector2.zero;
+
+    private bool grounded = false;
 
     void Awake()
     {
@@ -47,6 +69,15 @@ public class Player_Movement : MonoBehaviour
 
         Quaternion localRotation = Quaternion.Euler(0f, mouseVector.x * lookSpeed, 0f);
         transform.rotation = transform.rotation * localRotation;
+
+        if (rb.linearVelocity.y < 0f)
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1f) * Time.deltaTime;
+        }
+        else if (rb.linearVelocity.y > 0f && !controls.Player.Jump.IsPressed())
+        {
+            rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.deltaTime;
+        }
 
         SpeedLimit();
     }
@@ -86,8 +117,11 @@ public class Player_Movement : MonoBehaviour
 
     }
 
-    void OnCollisionStay()
+    void OnCollisionStay(Collision collision)
     {
-        grounded = true;
+        if (groundMask == (groundMask | (1 << collision.gameObject.layer)))
+        {
+            grounded = true;
+        }
     }
 }

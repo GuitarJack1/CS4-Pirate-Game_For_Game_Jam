@@ -11,13 +11,8 @@ public class Bullet_Script : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(transform.forward * force, ForceMode.Impulse);
     }
 
-    void OnCollisionEnter(Collision collision){
-        Destroy(gameObject);
-    }
-
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-        
+        Destroy(gameObject);
     }
 }
