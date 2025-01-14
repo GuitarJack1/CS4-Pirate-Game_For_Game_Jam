@@ -8,7 +8,17 @@ using TMPro;
 
 public class Shoot_Gun : MonoBehaviour
 {
-    public GameObject bullet;
+    [SerializeField]
+    private GameObject bulletPrefab;
+    [SerializeField]
+    private Transform bulletSpawnTransform;
+    [SerializeField]
+    private float reload_time;
+    [SerializeField]
+    private float bulletForce;
+    [SerializeField]
+    private GameObject playerCamera;
+
     private Player_Input controls;
     public float shoot_time;
     private float next_shoot;
@@ -16,7 +26,6 @@ public class Shoot_Gun : MonoBehaviour
     public int ammo;
     public int maxAmmo = 30;
     public TMP_Text text;
-    public float reload_time;
     private float last_reload_time;
     private bool reloading;
 
@@ -40,11 +49,14 @@ public class Shoot_Gun : MonoBehaviour
             reloading = false;
             ammo--;
             next_shoot = Time.time + shoot_time;
-            Instantiate(bullet, transform.position, transform.rotation);
+            GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, bulletSpawnTransform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
+            bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
         }
     }
 
-    void Reload(CallbackContext cb){
+    void Reload(CallbackContext cb)
+    {
         last_reload_time = Time.time;
         fakeAmmo = ammo;
         reloading = true;
@@ -53,7 +65,8 @@ public class Shoot_Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(ammo >= maxAmmo){
+        if (ammo >= maxAmmo)
+        {
             reloading = false;
         }
         if (controls.Player.Shoot.IsPressed())
@@ -61,8 +74,9 @@ public class Shoot_Gun : MonoBehaviour
             Shoot();
         }
         text.text = ammo + "/" + maxAmmo;
-        if(Time.time < last_reload_time + reload_time && ammo < maxAmmo && reloading){
-            fakeAmmo += maxAmmo/reload_time * Time.deltaTime;
+        if (Time.time < last_reload_time + reload_time && ammo < maxAmmo && reloading)
+        {
+            fakeAmmo += maxAmmo / reload_time * Time.deltaTime;
             ammo = (int)fakeAmmo;
         }
     }
