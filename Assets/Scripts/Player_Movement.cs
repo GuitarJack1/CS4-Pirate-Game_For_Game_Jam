@@ -45,6 +45,10 @@ public class Player_Movement : MonoBehaviour
 
     private bool grounded = false;
 
+    public float mouseY;
+
+    Shoot_Gun shootGunScript;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -57,11 +61,15 @@ public class Player_Movement : MonoBehaviour
 
         controls = new Player_Input();
         controls.Player.Enable();
+
+        shootGunScript = GetComponentInChildren<Shoot_Gun>();
     }
 
     void Update()
     {
         Vector2 mouseVector = controls.Player.Mouse.ReadValue<Vector2>();
+        mouseVector.y += shootGunScript.recoilOffset;
+        shootGunScript.recoilOffset = 0;
 
         // Player and Camera rotation
         rotation.x += -mouseVector.y * lookSpeed;

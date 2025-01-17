@@ -23,13 +23,17 @@ public class Shoot_Gun : MonoBehaviour
     public float shoot_time;
     private float next_shoot;
     private float fakeAmmo;
-    public int ammo;
+    private int ammo;
     public int maxAmmo = 30;
     public TMP_Text text;
     private float last_reload_time;
     private bool reloading;
+    public float recoilOffsetValue = 2;
+    [HideInInspector]
 
-    Vector2 rotation = Vector2.zero;
+    public float recoilOffset;
+    public GameObject explosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +44,7 @@ public class Shoot_Gun : MonoBehaviour
         controls = new Player_Input();
         controls.Player.Enable();
         controls.Player.Reload.performed += Reload;
+        explosion.GetComponent<Renderer>().enabled = false;
     }
 
     private void Shoot()
@@ -52,14 +57,18 @@ public class Shoot_Gun : MonoBehaviour
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, bulletSpawnTransform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
+            recoilOffset = recoilOffsetValue;
+            explosion.GetComponent<Renderer>().enabled = true;
         }
     }
 
     void Reload(CallbackContext cb)
     {
-        last_reload_time = Time.time;
-        fakeAmmo = ammo;
-        reloading = true;
+        if(Time.time > last_reload_time + reload_time && ammo < maxAmmo){
+            last_reload_time = Time.time;
+            fakeAmmo = ammo;
+            reloading = true;
+        }
     }
 
     // Update is called once per frame
@@ -78,6 +87,9 @@ public class Shoot_Gun : MonoBehaviour
         {
             fakeAmmo += maxAmmo / reload_time * Time.deltaTime;
             ammo = (int)fakeAmmo;
+        }
+        if(Time.time > next_shoot - (shoot_time - 0.1)){
+            explosion.GetComponent<Renderer>().enabled = false;
         }
     }
 }
