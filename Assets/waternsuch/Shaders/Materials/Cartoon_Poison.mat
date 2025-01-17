@@ -54,35 +54,35 @@ Material:
     m_Floats:
     - BOOLEAN_B7922ADA: 0
     - ENUM_6B99C3BA: 1
-    - Vector1_3A4931B2: 5
+    - Vector1_3A4931B2: 7
     - Vector1_A9532B28: 1
-    - Vector1_F1E786B1: 5
+    - Vector1_F1E786B1: 6.18
     - _: 1
     - _Depth: 0.82
     - _Displacement_Multiplier: 0.36
     - _Distance: 2.8
-    - _Edge_Amount: 0.43
-    - _Edge_Cutoff: 1.04
-    - _Edge_Scale: 35.2
-    - _Edge_Speed: 1.19
-    - _Metallic: 0.983
+    - _Edge_Amount: 3.3
+    - _Edge_Cutoff: 8.6
+    - _Edge_Scale: 49.19
+    - _Edge_Speed: 0.74
+    - _Metallic: 0.53
     - _Normal_Strength: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Refraction_Scale: 87.3
-    - _Refraction_Speed: 0.7
-    - _Refraction_Strength: 0.0082
-    - _Ripple_Density: 14.25
-    - _Ripple_Slimness: 3.6
+    - _Refraction_Scale: 88.3
+    - _Refraction_Speed: 0.54
+    - _Refraction_Strength: 0.0182
+    - _Ripple_Density: 7.86
+    - _Ripple_Slimness: 5.93
     - _Strength: 1.17
     - _Water_Tiling_Speed: 0.73
     m_Colors:
     - Vector2_CFDAA394: {r: 0.04, g: 0, b: 0, a: 0}
     - _Base_Color: {r: 0, g: 0, b: 0, a: 0.7529412}
-    - _Deep_Water_Color: {r: 0.07450981, g: 0, b: 0.016442452, a: 0.9490196}
-    - _Edge_Color: {r: 0.73919916, g: 5.6474814, b: 0, a: 1}
+    - _Deep_Water_Color: {r: 0.012459958, g: 0.33191895, b: 0.3773585, a: 0.9490196}
+    - _Edge_Color: {r: 2.640015, g: 3.5490355, b: 4.0852785, a: 1}
     - _Radial_Shear: {r: 0, g: 0, b: 0, a: 0}
-    - _Ripple_Color: {r: 0.73919916, g: 5.6474814, b: 0, a: 1}
-    - _Shallow_Water_Color: {r: 0.2502401, g: 0, b: 0.26666668, a: 0.8666667}
+    - _Ripple_Color: {r: 1.8946893, g: 5.4039807, b: 6.584822, a: 1}
+    - _Shallow_Water_Color: {r: 0.048282307, g: 0.3011984, b: 0.3301887, a: 0.8666667}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

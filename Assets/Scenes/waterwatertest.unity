@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &94083868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 94083869}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &94083869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94083868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 53.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1168856811}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &675021905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,6 +223,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 160e73c9e7b295742af0526273098895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1530435989}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 160e73c9e7b295742af0526273098895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1530435991}
   m_SourcePrefab: {fileID: 100100000, guid: 160e73c9e7b295742af0526273098895, type: 3}
 --- !u!1 &704732403
 GameObject:
@@ -336,7 +370,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -573,6 +607,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1168856810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168856811}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1168856811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168856810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.6, y: 0, z: 7.8999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 94083869}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1216911731
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,11 +716,11 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &1530435989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,10 +734,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 1530435982}
-  depthBeforeSubmerged: 2.32
-  displacementAmount: 11.44
+  depthBeforeSubmerged: 0.91
+  displacementAmount: 1.5
   floaterCount: 1
-  waterDrag: 0.99
+  waterDrag: 1.48
   waterAngularDrag: 1.4
 --- !u!114 &1530435990
 MonoBehaviour:
@@ -690,6 +756,23 @@ MonoBehaviour:
   waveFrequency: 0.3
   waveSpeed: 0.06
   waveSurface: {fileID: 2076933150}
+--- !u!114 &1530435991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530435980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62178cc7877b6cf4aa0499b3df214c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MovementSpeed: 3
+  PathContainer: {fileID: 1168856811}
+  MovementStyle: 0
+  LoopThroughPoints: 0
+  StartAtFirstPointOnAwake: 0
 --- !u!1 &1836700015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1002,7 +1085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amplitude: 1.16
   length: 0.64
-  speed: 0.64
+  speed: 0.26
   offset: 0
 --- !u!114 &2076933152
 MonoBehaviour:
@@ -1025,3 +1108,4 @@ SceneRoots:
   - {fileID: 675021905}
   - {fileID: 2076933150}
   - {fileID: 805151236}
+  - {fileID: 1168856811}
