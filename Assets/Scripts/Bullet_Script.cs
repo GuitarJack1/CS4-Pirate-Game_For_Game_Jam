@@ -5,6 +5,9 @@ public class Bullet_Script : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Fish"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
