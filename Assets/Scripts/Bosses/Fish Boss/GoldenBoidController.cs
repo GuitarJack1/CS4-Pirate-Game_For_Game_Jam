@@ -27,8 +27,11 @@ public class GoldenBoidController : MonoBehaviour
 
     void Update()
     {
-        Vector3 distFromCenter = boidCenter.position - boid.transform.position;
-        boid.velocity += Vector3.Lerp(Vector3.zero, distFromCenter, distFromCenter.magnitude) * pushToCenterForce;
-        boid.velocity += Random.insideUnitSphere * randomPushForce;
+        if (boid)
+        {
+            Vector3 distFromCenter = boidCenter.position - boid.transform.position;
+            boid.velocity += Vector3.Lerp(Vector3.zero, distFromCenter, distFromCenter.magnitude) * pushToCenterForce;
+            boid.velocity += Random.insideUnitSphere * randomPushForce;
+        }
     }
 }

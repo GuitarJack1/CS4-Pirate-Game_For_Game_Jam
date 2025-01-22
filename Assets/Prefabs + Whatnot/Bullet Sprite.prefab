@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5818326390658667134}
   - component: {fileID: 4113650913086683439}
   - component: {fileID: 8840211265846132230}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 4547952648657453373}
   - component: {fileID: 302988590374729713}
   - component: {fileID: 6273671013340521210}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,9 +187,9 @@ GameObject:
   - component: {fileID: 7025727193970514013}
   - component: {fileID: 5656060494410563666}
   - component: {fileID: -4013237869371076720}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bullet Sprite
-  m_TagString: Untagged
+  m_TagString: Player Projectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -297,7 +297,7 @@ GameObject:
   - component: {fileID: 5181421784679863013}
   - component: {fileID: 7821539474100276623}
   - component: {fileID: 1820343460967585292}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

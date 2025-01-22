@@ -44,7 +44,7 @@ public class Shoot_Gun : MonoBehaviour
         controls = new Player_Input();
         controls.Player.Enable();
         controls.Player.Reload.performed += Reload;
-        explosion.GetComponent<Renderer>().enabled = false;
+        explosion.GetComponent<Image>().enabled = false;
     }
 
     private void Shoot()
@@ -58,14 +58,15 @@ public class Shoot_Gun : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
             recoilOffset = recoilOffsetValue;
-            explosion.GetComponent<Renderer>().enabled = true;
+            explosion.GetComponent<Image>().enabled = true;
             GetComponent<AudioSource>().Play();
         }
     }
 
     void Reload(CallbackContext cb)
     {
-        if(Time.time > last_reload_time + reload_time && ammo < maxAmmo){
+        if (Time.time > last_reload_time + reload_time && ammo < maxAmmo)
+        {
             last_reload_time = Time.time;
             fakeAmmo = ammo;
             reloading = true;
@@ -89,8 +90,9 @@ public class Shoot_Gun : MonoBehaviour
             fakeAmmo += maxAmmo / reload_time * Time.deltaTime;
             ammo = (int)fakeAmmo;
         }
-        if(Time.time > next_shoot - (shoot_time - 0.1)){
-            explosion.GetComponent<Renderer>().enabled = false;
+        if (Time.time > next_shoot - (shoot_time - 0.1))
+        {
+            explosion.GetComponent<Image>().enabled = false;
         }
     }
 }

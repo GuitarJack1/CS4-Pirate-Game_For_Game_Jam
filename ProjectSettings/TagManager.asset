@@ -7,15 +7,11 @@ TagManager:
   - Player Projectiles
   - Fish
   - Ground
-  tags:
-  - Player Projectiles
-  - Fish
-  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - Player

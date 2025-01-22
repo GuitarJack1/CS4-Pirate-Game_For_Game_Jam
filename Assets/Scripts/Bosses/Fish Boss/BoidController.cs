@@ -48,33 +48,39 @@ public class BoidController : MonoBehaviour
     {
         foreach (Boid boid in boids)
         {
-            Vector3 averageDistance = Vector3.zero;
-            Vector3 averageVelocity = Vector3.zero;
-            int found = 0;
-            foreach (Boid otherBoid in boids.Where(b => b != boid))
+            if (boid)
             {
-                Vector3 diff = otherBoid.transform.position - boid.transform.position;
-                if (diff.magnitude < radius)
+                Vector3 averageDistance = Vector3.zero;
+                Vector3 averageVelocity = Vector3.zero;
+                int found = 0;
+                foreach (Boid otherBoid in boids.Where(b => b != boid))
                 {
-                    averageDistance += diff;
-                    averageVelocity += otherBoid.velocity;
-                    found++;
+                    if (otherBoid)
+                    {
+                        Vector3 diff = otherBoid.transform.position - boid.transform.position;
+                        if (diff.magnitude < radius)
+                        {
+                            averageDistance += diff;
+                            averageVelocity += otherBoid.velocity;
+                            found++;
+                        }
+                    }
                 }
-            }
 
-            if (found > 0)
-            {
-                averageDistance /= found;
-                averageVelocity /= found;
-                boid.velocity += Vector3.Lerp(Vector3.zero, averageDistance, averageDistance.magnitude / radius);
-                //boid.velocity += Vector3.Lerp(boid.velocity, averageVelocity, Time.deltaTime);
-                boid.velocity -= Vector3.Lerp(Vector3.zero, averageDistance, averageDistance.magnitude / repulsionRadius) * repulsionForce;
-            }
+                if (found > 0)
+                {
+                    averageDistance /= found;
+                    averageVelocity /= found;
+                    boid.velocity += Vector3.Lerp(Vector3.zero, averageDistance, averageDistance.magnitude / radius);
+                    //boid.velocity += Vector3.Lerp(boid.velocity, averageVelocity, Time.deltaTime);
+                    boid.velocity -= Vector3.Lerp(Vector3.zero, averageDistance, averageDistance.magnitude / repulsionRadius) * repulsionForce;
+                }
 
-            Vector3 vectToContainerCenter = boid.transform.position - boidCenter.position;
-            if (vectToContainerCenter.magnitude > containerRadius)
-            {
-                boid.velocity += vectToContainerCenter.normalized * (containerRadius - vectToContainerCenter.magnitude) * boundaryForce * Time.deltaTime;
+                Vector3 vectToContainerCenter = boid.transform.position - boidCenter.position;
+                if (vectToContainerCenter.magnitude > containerRadius)
+                {
+                    boid.velocity += vectToContainerCenter.normalized * (containerRadius - vectToContainerCenter.magnitude) * boundaryForce * Time.deltaTime;
+                }
             }
         }
     }

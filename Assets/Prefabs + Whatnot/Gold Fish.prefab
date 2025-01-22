@@ -169,8 +169,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2399c173d67ce9a47bcdaaae390cc65f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGoldenFish: 1
   maxVelocity: 6
   velocity: {x: 0, y: 0, z: 0}
+  beginningColor: {r: 1, g: 0.82331175, b: 0, a: 1}
+  deadColor: {r: 1, g: 0.32566467, b: 0, a: 1}
+  timeToDestroyAfterKilled: 1
 --- !u!1 &4267999009926266521
 GameObject:
   m_ObjectHideFlags: 0
