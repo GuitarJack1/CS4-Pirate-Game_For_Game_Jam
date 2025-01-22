@@ -42,7 +42,7 @@ public class Player_Movement : MonoBehaviour
     private Player_Input controls;
     Rigidbody rb;
     Vector2 rotation = Vector2.zero;
-
+    [SerializeField]
     private bool grounded = false;
 
     public float mouseY;
@@ -63,6 +63,7 @@ public class Player_Movement : MonoBehaviour
         controls.Player.Enable();
 
         shootGunScript = GetComponentInChildren<Shoot_Gun>();
+        GetComponent<AudioSource>().Pause();
     }
 
     void Update()
@@ -86,6 +87,12 @@ public class Player_Movement : MonoBehaviour
         else if (rb.linearVelocity.y > 0f && !controls.Player.Jump.IsPressed())
         {
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.deltaTime;
+        }
+        
+        if(controls.Player.Movement.ReadValue<Vector2>() != new Vector2(0,0)){
+            GetComponent<AudioSource>().UnPause();
+        } else {
+            GetComponent<AudioSource>().Pause();
         }
 
         SpeedLimit();

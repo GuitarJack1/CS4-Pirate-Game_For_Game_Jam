@@ -59,6 +59,7 @@ public class Shoot_Gun : MonoBehaviour
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
             recoilOffset = recoilOffsetValue;
             explosion.GetComponent<Renderer>().enabled = true;
+            GetComponent<AudioSource>().Play();
         }
     }
 
