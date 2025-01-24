@@ -59,7 +59,7 @@ Material:
     - Vector1_F1E786B1: 6.18
     - _: 1
     - _Depth: 0.82
-    - _Displacement_Multiplier: 0.36
+    - _Displacement_Multiplier: 6.83
     - _Distance: 2.8
     - _Edge_Amount: 3.3
     - _Edge_Cutoff: 8.6

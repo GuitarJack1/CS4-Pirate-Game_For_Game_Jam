@@ -44,7 +44,7 @@ public class Shoot_Gun : MonoBehaviour
         controls = new Player_Input();
         controls.Player.Enable();
         controls.Player.Reload.performed += Reload;
-        explosion.GetComponent<Image>().enabled = false;
+        explosion.GetComponent<Renderer>().enabled = false;
     }
 
     private void Shoot()
@@ -58,7 +58,7 @@ public class Shoot_Gun : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
             recoilOffset = recoilOffsetValue;
-            explosion.GetComponent<Image>().enabled = true;
+            explosion.GetComponent<Renderer>().enabled = true;
             GetComponent<AudioSource>().Play();
         }
     }
@@ -92,7 +92,7 @@ public class Shoot_Gun : MonoBehaviour
         }
         if (Time.time > next_shoot - (shoot_time - 0.1))
         {
-            explosion.GetComponent<Image>().enabled = false;
+            explosion.GetComponent<Renderer>().enabled = false;
         }
     }
 }
