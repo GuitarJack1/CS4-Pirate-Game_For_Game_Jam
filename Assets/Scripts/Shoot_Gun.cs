@@ -44,7 +44,10 @@ public class Shoot_Gun : MonoBehaviour
         controls = new Player_Input();
         controls.Player.Enable();
         controls.Player.Reload.performed += Reload;
+        // this kept throwing errors so i fixed it
         explosion.GetComponent<Renderer>().enabled = false;
+
+
     }
 
     private void Shoot()
@@ -58,7 +61,7 @@ public class Shoot_Gun : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
             recoilOffset = recoilOffsetValue;
-            explosion.GetComponent<Renderer>().enabled = true;
+            explosion.GetComponent<Renderer>().enabled = false;
             GetComponent<AudioSource>().Play();
         }
     }
