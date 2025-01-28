@@ -24,7 +24,7 @@ MonoBehaviour:
     m_Value: 0.1
   scatter:
     m_OverrideState: 1
-    m_Value: 0.7
+    m_Value: 0.555
   clamp:
     m_OverrideState: 1
     m_Value: 65472
@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Value: 20
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    m_Value: {r: 1, g: 0.9084593, b: 0.8632076, a: 1}
   hueShift:
     m_OverrideState: 1
     m_Value: 0
@@ -161,6 +161,7 @@ MonoBehaviour:
   - {fileID: -2847012291543010912}
   - {fileID: -4062481241321750826}
   - {fileID: -6834095727105209441}
+  - {fileID: 3274882931366240649}
 --- !u!114 &2331408850410906922
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -180,3 +181,59 @@ MonoBehaviour:
   tint:
     m_OverrideState: 1
     m_Value: 0
+--- !u!114 &3274882931366240649
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbb66dc641fe8ef4c843eb98a8fa4058, type: 3}
+  m_Name: FullScreenFog
+  m_EditorClassIdentifier: 
+  active: 1
+  mode:
+    m_OverrideState: 1
+    m_Value: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.01
+  color:
+    m_OverrideState: 1
+    m_Value: {r: 0.3962264, g: 0.3885947, b: 0.38314345, a: 1}
+  densityMode:
+    m_OverrideState: 1
+    m_Value: 1
+  startLine:
+    m_OverrideState: 0
+    m_Value: 0
+  endLine:
+    m_OverrideState: 1
+    m_Value: 10
+  startHeight:
+    m_OverrideState: 1
+    m_Value: 0.31
+  endHeight:
+    m_OverrideState: 1
+    m_Value: 0
+  density:
+    m_OverrideState: 1
+    m_Value: 0.026
+  noiseMode:
+    m_OverrideState: 1
+    m_Value: 1
+  noiseTexture:
+    m_OverrideState: 1
+    m_Value: {fileID: 2800000, guid: 1cdc5b506b1a4a33a53c30669ced1f51, type: 3}
+    dimension: 1
+  noiseIntensity:
+    m_OverrideState: 1
+    m_Value: 0.072
+  noiseScale:
+    m_OverrideState: 1
+    m_Value: 1
+  noiseScrollSpeed:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 1}
