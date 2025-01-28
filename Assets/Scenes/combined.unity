@@ -2753,7 +2753,7 @@ MonoBehaviour:
   _createDynamicWaveSim: 1
   _simSettingsDynamicWaves: {fileID: 11400000, guid: c5b55f77af3141840a18c7bfe0dff291, type: 2}
   _createFlowSim: 1
-  _simSettingsFlow: {fileID: 0}
+  _simSettingsFlow: {fileID: 11400000, guid: 2d4370691c3523447986204e4a088f1d, type: 2}
   _createShadowData: 1
   _simSettingsShadow: {fileID: 11400000, guid: c816175618f5f444ab81c3d46118cf16, type: 2}
   _createClipSurfaceData: 1
@@ -2840,8 +2840,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15120149, y: 0.064105734, z: 0.09455455}
-  m_Center: {x: 0.01202779, y: -0.00036571262, z: 0.009702909}
+  m_Size: {x: 0.14148332, y: 0.048816703, z: 0.094554536}
+  m_Center: {x: 0.016886812, y: -0.00082469796, z: 0.009702906}
 --- !u!1001 &641472840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2964,6 +2964,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 160e73c9e7b295742af0526273098895, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1825298197}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 160e73c9e7b295742af0526273098895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1825298200}
   m_SourcePrefab: {fileID: 100100000, guid: 160e73c9e7b295742af0526273098895, type: 3}
 --- !u!1 &651223127
 GameObject:
@@ -3364,7 +3367,7 @@ Transform:
   m_GameObject: {fileID: 746845644}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 738, y: -18, z: 0}
+  m_LocalPosition: {x: 738, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6136,7 +6139,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -6402,6 +6405,36 @@ MonoBehaviour:
   m_ObjectForwardAxis: 0
   m_ObjectUpAxis: 2
   m_StartOffset: 0
+--- !u!114 &1825298200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825298175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb499a376b0c094f92b8f70c0966934, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _version: 0
+  _centerOfMass: {x: 0, y: 0, z: 0}
+  _forcePoints: []
+  _forceHeightOffset: 0
+  _forceMultiplier: 10
+  _minSpatialLength: 12
+  _turningHeel: 0.35
+  _maximumBuoyancyForce: Infinity
+  _dragInWaterUp: 3
+  _dragInWaterRight: 2
+  _dragInWaterForward: 1
+  _enginePower: 7
+  _turnPower: 0.5
+  _playerControlled: 0
+  _engineBias: 0
+  _turnBias: 0
+  _debug:
+    _drawQueries: 0
 --- !u!1 &1854173247
 GameObject:
   m_ObjectHideFlags: 0
