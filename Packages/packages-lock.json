@@ -258,15 +258,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "moe.meryuhi.effects.fog": {
-      "version": "https://github.com/meryuhi/URPFog.git?path=Packages/Fog",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.render-pipelines.universal": "17.0.0"
-      },
-      "hash": "6f2e68a0270654727f41fca1ca34a548f46d0455"
-    },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",
       "depth": 0,
