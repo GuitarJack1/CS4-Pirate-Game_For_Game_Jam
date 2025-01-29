@@ -249,6 +249,74 @@ public partial class @Player_Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Cannon"",
+            ""id"": ""665b5bfc-3c59-487e-b383-a3537bef50de"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5655de7-cf1e-4456-be75-257abf8e6add"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""pressE"",
+                    ""type"": ""Button"",
+                    ""id"": ""eacbc448-2330-43ab-9c87-06b9ef1637b8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Mouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""e15c1d79-1b73-4296-9167-6f49096b88b0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c7c800ac-5c36-4cea-b24f-b5a14bac2e92"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""06e4f61d-2714-4ea5-8bb6-52c6cb5920c5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pressE"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cc68324-a429-48c3-9579-4d8a839d025a"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -261,11 +329,17 @@ public partial class @Player_Input: IInputActionCollection2, IDisposable
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
         m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
         m_Player_pressE = m_Player.FindAction("pressE", throwIfNotFound: true);
+        // Cannon
+        m_Cannon = asset.FindActionMap("Cannon", throwIfNotFound: true);
+        m_Cannon_Shoot = m_Cannon.FindAction("Shoot", throwIfNotFound: true);
+        m_Cannon_pressE = m_Cannon.FindAction("pressE", throwIfNotFound: true);
+        m_Cannon_Mouse = m_Cannon.FindAction("Mouse", throwIfNotFound: true);
     }
 
     ~@Player_Input()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, Player_Input.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Cannon.enabled, "This will cause a leak and performance issues, Player_Input.Cannon.Disable() has not been called.");
     }
 
     public void Dispose()
@@ -409,6 +483,68 @@ public partial class @Player_Input: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Cannon
+    private readonly InputActionMap m_Cannon;
+    private List<ICannonActions> m_CannonActionsCallbackInterfaces = new List<ICannonActions>();
+    private readonly InputAction m_Cannon_Shoot;
+    private readonly InputAction m_Cannon_pressE;
+    private readonly InputAction m_Cannon_Mouse;
+    public struct CannonActions
+    {
+        private @Player_Input m_Wrapper;
+        public CannonActions(@Player_Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_Cannon_Shoot;
+        public InputAction @pressE => m_Wrapper.m_Cannon_pressE;
+        public InputAction @Mouse => m_Wrapper.m_Cannon_Mouse;
+        public InputActionMap Get() { return m_Wrapper.m_Cannon; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CannonActions set) { return set.Get(); }
+        public void AddCallbacks(ICannonActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CannonActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CannonActionsCallbackInterfaces.Add(instance);
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @pressE.started += instance.OnPressE;
+            @pressE.performed += instance.OnPressE;
+            @pressE.canceled += instance.OnPressE;
+            @Mouse.started += instance.OnMouse;
+            @Mouse.performed += instance.OnMouse;
+            @Mouse.canceled += instance.OnMouse;
+        }
+
+        private void UnregisterCallbacks(ICannonActions instance)
+        {
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @pressE.started -= instance.OnPressE;
+            @pressE.performed -= instance.OnPressE;
+            @pressE.canceled -= instance.OnPressE;
+            @Mouse.started -= instance.OnMouse;
+            @Mouse.performed -= instance.OnMouse;
+            @Mouse.canceled -= instance.OnMouse;
+        }
+
+        public void RemoveCallbacks(ICannonActions instance)
+        {
+            if (m_Wrapper.m_CannonActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ICannonActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CannonActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CannonActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public CannonActions @Cannon => new CannonActions(this);
     public interface IPlayerActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -417,5 +553,11 @@ public partial class @Player_Input: IInputActionCollection2, IDisposable
         void OnShoot(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
         void OnPressE(InputAction.CallbackContext context);
+    }
+    public interface ICannonActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+        void OnPressE(InputAction.CallbackContext context);
+        void OnMouse(InputAction.CallbackContext context);
     }
 }

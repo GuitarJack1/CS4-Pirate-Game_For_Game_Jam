@@ -19,7 +19,7 @@ public class Shoot_Gun : MonoBehaviour
     [SerializeField]
     private GameObject playerCamera;
 
-    private Player_Input controls;
+    public Player_Input controls;
     public float shoot_time;
     private float next_shoot;
     private float fakeAmmo;
