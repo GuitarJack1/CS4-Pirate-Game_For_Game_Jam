@@ -22,7 +22,7 @@ namespace Crest
         public UnderwaterMaskPassURP()
         {
             // Will always execute and matrices will be ready.
-            renderPassEvent = RenderPassEvent.BeforeRenderingPostProcessing;
+            renderPassEvent = RenderPassEvent.BeforeRenderingOpaques;
             _oceanMaskMaterial = new PropertyWrapperMaterial(k_ShaderPathOceanMask);
             _oceanMaskMaterial.material.hideFlags = HideFlags.HideAndDontSave;
         }
@@ -100,18 +100,15 @@ namespace Crest
 
         // Called before Execute.
         public override void Configure(CommandBuffer cmd, RenderTextureDescriptor cameraTextureDescriptor)
-{
-     // Use RTHandles instead of RenderTargetIdentifiers
-    var maskTargetHandle = RTHandles.Alloc(UnderwaterRenderer.Instance._maskTarget);
-    var depthTargetHandle = RTHandles.Alloc(UnderwaterRenderer.Instance._depthTarget);
+        {
+            var maskRTHandle = RTHandles.Alloc(UnderwaterRenderer.Instance._maskTarget);
+            var depthRTHandle = RTHandles.Alloc(UnderwaterRenderer.Instance._depthTarget);
 
-    ConfigureTarget(maskTargetHandle, depthTargetHandle);
-    ConfigureClear(ClearFlag.All, Color.black);
+            ConfigureTarget(maskRTHandle, depthRTHandle);
+            //ConfigureTarget(UnderwaterRenderer.Instance._maskTarget, UnderwaterRenderer.Instance._depthTarget);
 
-    // Free the RTHandles after use to avoid memory leaks
-    RTHandles.Release(maskTargetHandle);
-    RTHandles.Release(depthTargetHandle);
-}
+            ConfigureClear(ClearFlag.All, Color.black);
+        }
 
         public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
         {

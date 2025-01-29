@@ -78,7 +78,7 @@ namespace Crest
             if (RenderPipelineHelper.IsUniversal)
             {
                 // MSAA will be the same for every camera if XR rendering.
-                
+                isMSAA = isMSAA;
             }
 #endif
 
