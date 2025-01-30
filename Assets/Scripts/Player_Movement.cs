@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,7 +41,7 @@ public class Player_Movement : MonoBehaviour
     private float upDownLimit = 90f;
 
     private Player_Input controls;
-    Rigidbody rb;
+    public Rigidbody rb;
     Vector2 rotation = Vector2.zero;
     [SerializeField]
     private bool grounded = false;
@@ -48,6 +49,8 @@ public class Player_Movement : MonoBehaviour
     public float mouseY;
 
     Shoot_Gun shootGunScript;
+
+    private bool grabbed;
 
     void Awake()
     {
@@ -80,44 +83,53 @@ public class Player_Movement : MonoBehaviour
         Quaternion localRotation = Quaternion.Euler(0f, mouseVector.x * lookSpeed, 0f);
         transform.rotation = transform.rotation * localRotation;
 
-        if (rb.linearVelocity.y < 0f)
+        if (!grabbed)
         {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1f) * Time.deltaTime;
-        }
-        else if (rb.linearVelocity.y > 0f && !controls.Player.Jump.IsPressed())
-        {
-            rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.deltaTime;
-        }
-        
-        if(controls.Player.Movement.ReadValue<Vector2>() != new Vector2(0,0)){
-            GetComponent<AudioSource>().UnPause();
-        } else {
-            GetComponent<AudioSource>().Pause();
-        }
+            if (rb.linearVelocity.y < 0f)
+            {
+                rb.linearVelocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1f) * Time.deltaTime;
+            }
+            else if (rb.linearVelocity.y > 0f && !controls.Player.Jump.IsPressed())
+            {
+                rb.linearVelocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1f) * Time.deltaTime;
+            }
 
-        SpeedLimit();
+            if (controls.Player.Movement.ReadValue<Vector2>() != new Vector2(0, 0))
+            {
+                GetComponent<AudioSource>().UnPause();
+            }
+            else
+            {
+                GetComponent<AudioSource>().Pause();
+            }
+
+            SpeedLimit();
+        }
     }
 
     void FixedUpdate()
     {
-        Vector2 movementInputVector = controls.Player.Movement.ReadValue<Vector2>();
-        Vector3 movementDirection = transform.forward * movementInputVector.y + transform.right * movementInputVector.x;
-
-        rb.AddForce(movementDirection.normalized * speedForce, ForceMode.Acceleration);
-
-        if (grounded)
+        if (!grabbed)
         {
-            rb.linearDamping = groundDrag;
+            Vector2 movementInputVector = controls.Player.Movement.ReadValue<Vector2>();
+            Vector3 movementDirection = transform.forward * movementInputVector.y + transform.right * movementInputVector.x;
 
-            if (controls.Player.Jump.IsPressed() && grounded)
+            rb.AddForce(movementDirection.normalized * speedForce, ForceMode.Acceleration);
+
+            if (grounded)
             {
-                rb.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
-                grounded = false;
+                rb.linearDamping = groundDrag;
+
+                if (controls.Player.Jump.IsPressed() && grounded)
+                {
+                    rb.AddForce(transform.up * jumpHeight, ForceMode.VelocityChange);
+                    grounded = false;
+                }
             }
-        }
-        else
-        {
-            rb.linearDamping = airDrag;
+            else
+            {
+                rb.linearDamping = airDrag;
+            }
         }
     }
 
@@ -139,5 +151,14 @@ public class Player_Movement : MonoBehaviour
         {
             grounded = true;
         }
+    }
+
+    public void Grabbed()
+    {
+        rb.isKinematic = true;
+    }
+    public void Dropped()
+    {
+        rb.isKinematic = false;
     }
 }
