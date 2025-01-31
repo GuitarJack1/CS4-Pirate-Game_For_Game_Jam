@@ -34,6 +34,9 @@ public class Shoot_Gun : MonoBehaviour
     public float recoilOffset;
     public GameObject explosion;
 
+    private Vector3 currentVelocity;
+    private Vector3 previousPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -58,6 +61,7 @@ public class Shoot_Gun : MonoBehaviour
             ammo--;
             next_shoot = Time.time + shoot_time;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, bulletSpawnTransform.rotation);
+            bullet.GetComponent<Rigidbody>().linearVelocity = currentVelocity;
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = playerCamera;
             recoilOffset = recoilOffsetValue;
@@ -97,5 +101,9 @@ public class Shoot_Gun : MonoBehaviour
         {
             explosion.GetComponent<Renderer>().enabled = false;
         }
+        if(previousPosition != new Vector3(0,0,0)){
+            currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
+        }
+        previousPosition = transform.position;
     }
 }
