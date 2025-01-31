@@ -41,6 +41,9 @@ public class CannonScript : MonoBehaviour
     private float leftRightLimit = 50f;
 
     Vector2 rotation = Vector2.zero;
+    
+    private Vector3 currentVelocity;
+    private Vector3 previousPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -82,6 +85,7 @@ public class CannonScript : MonoBehaviour
         {
             next_shoot = Time.time + shoot_time;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnTransform.position, bulletSpawnTransform.rotation);
+            bullet.GetComponent<Rigidbody>().linearVelocity = currentVelocity;
             bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * bulletForce, ForceMode.VelocityChange);
             bullet.GetComponent<LookAtCamera>().mainCamera = cannonCameraGO;
             GetComponent<AudioSource>().Play();
@@ -102,5 +106,9 @@ public class CannonScript : MonoBehaviour
         rotation.y += mouseVector.x * lookSpeed;
         rotation.y = Mathf.Clamp(rotation.y, -leftRightLimit, leftRightLimit);
         cannonCamera.transform.localRotation = Quaternion.Euler(rotation.x, rotation.y, 0);
+        if(previousPosition != new Vector3(0,0,0)){
+            currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
+        }
+        previousPosition = transform.position;
     }
 }

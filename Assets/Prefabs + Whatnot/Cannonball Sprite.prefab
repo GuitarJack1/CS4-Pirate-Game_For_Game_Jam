@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 5656060494410563666}
   - component: {fileID: -4013237869371076720}
   m_Layer: 7
-  m_Name: Bullet Sprite
+  m_Name: Cannonball Sprite
   m_TagString: Player Projectiles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -286,8 +286,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92105a2ef941536489bc6af091415d31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonBall: 0
+  cannonBall: 1
+  bulletPrefab: {fileID: 4560358676166116188, guid: 26b8e98d72343a841bc62c4dacfc9c28, type: 3}
   explosionPrefab: {fileID: 4914716930404006884, guid: aed12c224fbc8704d8eaa07a52e88f44, type: 3}
+  shrapnelForce: 5
 --- !u!1 &5783444092726470720
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1030,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 2800000, guid: ce2a6c4ea2020e7498ecf24fdaae72bd, type: 3}
+    m_Texture: {fileID: 0}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -1158,7 +1160,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.09
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1264,7 +1266,7 @@ ParticleSystem:
     m_BurstCount: 0
     m_Bursts: []
   SizeModule:
-    enabled: 1
+    enabled: 0
     curve:
       serializedVersion: 2
       minMaxState: 1
@@ -1588,7 +1590,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 1
+    enabled: 0
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -1596,17 +1598,17 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.18942162, b: 0, a: 1}
-        key1: {r: 1, g: 0.91433054, b: 0.495283, a: 1}
-        key2: {r: 1, g: 1, b: 1, a: 0}
+        key0: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 31611
-        ctime2: 65535
+        ctime1: 65535
+        ctime2: 0
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -1621,8 +1623,8 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: 0
-        m_NumColorKeys: 3
+        m_ColorSpace: -1
+        m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
@@ -1779,7 +1781,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 1
+    enabled: 0
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2973,7 +2975,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
   NoiseModule:
-    enabled: 1
+    enabled: 0
     strength:
       serializedVersion: 2
       minMaxState: 0
@@ -3907,7 +3909,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     type: 0
     collisionMode: 0
