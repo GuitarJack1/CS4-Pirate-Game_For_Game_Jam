@@ -154,7 +154,7 @@ public class Player_Movement : MonoBehaviour
             grounded = true;
         }
         if(waterMask == (waterMask | (1 << collision.gameObject.layer))){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().combined);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
