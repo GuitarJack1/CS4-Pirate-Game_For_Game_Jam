@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(CapsuleCollider))]
@@ -29,6 +30,7 @@ public class Player_Movement : MonoBehaviour
     [Header("Interaction Settings")]
     [SerializeField]
     private LayerMask groundMask;
+    private LayerMask waterMask;
 
     [Header("Game Objects")]
     [SerializeField]
@@ -150,6 +152,9 @@ public class Player_Movement : MonoBehaviour
         if (groundMask == (groundMask | (1 << collision.gameObject.layer)))
         {
             grounded = true;
+        }
+        if(waterMask == (waterMask | (1 << collision.gameObject.layer))){
+            SceneManager.LoadScene(SceneManager.GetActiveScene().combined);
         }
     }
 

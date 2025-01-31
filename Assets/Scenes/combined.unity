@@ -2459,9 +2459,17 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 1825298176}
+    - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: text
       value: 
       objectReference: {fileID: 1880895338}
+    - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 452049141}
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: explosion
       value: 
@@ -2472,7 +2480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: bulletForce
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: reload_time
@@ -2728,6 +2736,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< Updated upstream
+=======
+--- !u!114 &452049137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 452049128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e7c3e5b0dcb9644c87672d9604995b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 5909504}
+  depth: -1
+  postProcessingVol: {fileID: 1613244143}
+  surface: {fileID: 11400000, guid: 9aab3ccfcdb8800479ab5e09c22afd7a, type: 2}
+  underwater: {fileID: 11400000, guid: a6fa4f93c20a43d4aad802caf15d871d, type: 2}
+--- !u!54 &452049141 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5781976610080014689, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
+  m_PrefabInstance: {fileID: 452049127}
+  m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!1 &506709873
 GameObject:
   m_ObjectHideFlags: 0
@@ -3826,7 +3862,7 @@ MonoBehaviour:
   cannonCamera: {fileID: 733354414}
   ammoUI: {fileID: 365503060}
   cannonCameraGO: {fileID: 733354410}
-  bulletPrefab: {fileID: 4560358676166116188, guid: 26b8e98d72343a841bc62c4dacfc9c28, type: 3}
+  bulletPrefab: {fileID: 4560358676166116188, guid: a9445dcfc3583de47a16a5c077ad6068, type: 3}
   bulletSpawnTransform: {fileID: 71583527}
   bulletForce: 100
   shoot_time: 1
@@ -4008,6 +4044,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+<<<<<<< Updated upstream
+=======
+--- !u!81 &733354413
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733354410}
+  m_Enabled: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!20 &733354414
 Camera:
   m_ObjectHideFlags: 0
@@ -5218,7 +5268,7 @@ MonoBehaviour:
   cannonCamera: {fileID: 1669238649}
   ammoUI: {fileID: 365503060}
   cannonCameraGO: {fileID: 1669238645}
-  bulletPrefab: {fileID: 4560358676166116188, guid: 26b8e98d72343a841bc62c4dacfc9c28, type: 3}
+  bulletPrefab: {fileID: 4560358676166116188, guid: a9445dcfc3583de47a16a5c077ad6068, type: 3}
   bulletSpawnTransform: {fileID: 677611952}
   bulletForce: 100
   shoot_time: 1
@@ -7203,6 +7253,20 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+<<<<<<< Updated upstream
+=======
+--- !u!81 &1669238648
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669238645}
+  m_Enabled: 0
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 --- !u!20 &1669238649
 Camera:
   m_ObjectHideFlags: 0
