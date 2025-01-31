@@ -2579,10 +2579,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7229037252701987270, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
-      propertyPath: lookSpeed
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7229037252701987270, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: groundMask.m_Bits
       value: 8
       objectReference: {fileID: 0}
@@ -3178,7 +3174,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614278608}
   - component: {fileID: 614278609}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3345,8 +3341,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4472,8 +4468,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4
-  m_fontSizeBase: 4
+  m_fontSize: 5
+  m_fontSizeBase: 5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4533,7 +4529,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 864005120}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: GameObject (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4733,7 +4729,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1026268268}
   - component: {fileID: 1026268267}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: waves
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5949,7 +5945,7 @@ GameObject:
   - component: {fileID: 1411597077}
   m_Layer: 3
   m_Name: terraun
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6049,7 +6045,7 @@ GameObject:
   - component: {fileID: 1422422119}
   - component: {fileID: 1422422118}
   - component: {fileID: 1422422120}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6580,7 +6576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1580463806}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: waterinputs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7421,7 +7417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1744433332}
   - component: {fileID: 1744433333}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7824,8 +7820,8 @@ MonoBehaviour:
   m_PlayOnAwake: 1
   m_LoopMode: 3
   m_Method: 1
-  m_Duration: 147.03929
-  m_MaxSpeed: 36.2
+  m_Duration: 53.422997
+  m_MaxSpeed: 100
   m_EasingMode: 3
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 0
@@ -8665,10 +8661,10 @@ MonoBehaviour:
         z: 47.634506
       Rotation:
         value:
-          x: 0.000051202554
-          y: 0.22015937
-          z: 0.00022686306
-          w: 0.975464
+          x: -0.0000105703275
+          y: -0.04545131
+          z: 0.0002323278
+          w: 0.99896646
     m_MetaData:
     - Mode: 4
       Tension: 0.5
@@ -8721,9 +8717,9 @@ MonoBehaviour:
         z: 9.8654
       Rotation:
         value:
-          x: -0.0036339588
+          x: -0.0036339574
           y: 0.29137546
-          z: -0.01192956
+          z: -0.011929556
           w: 0.95652753
     - Position:
         x: 662.418
@@ -8739,10 +8735,10 @@ MonoBehaviour:
         z: 0
       Rotation:
         value:
-          x: 0.008699122
-          y: 0.129545
-          z: 0.00025103285
-          w: 0.9915354
+          x: 0.0047985925
+          y: 0.9108959
+          z: -0.0072602597
+          w: 0.41254446
     - Position:
         x: 661.518
         y: 0.27037096
