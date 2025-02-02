@@ -101,7 +101,7 @@ public class Shoot_Gun : MonoBehaviour
         {
             explosion.GetComponent<Renderer>().enabled = false;
         }
-        if(previousPosition != new Vector3(0,0,0)){
+        if(previousPosition != null){
             currentVelocity = (transform.position - previousPosition) / Time.deltaTime;
         }
         previousPosition = transform.position;

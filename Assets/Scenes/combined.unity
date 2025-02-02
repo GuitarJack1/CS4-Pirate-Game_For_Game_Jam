@@ -3875,6 +3875,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 160e73c9e7b295742af0526273098895, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4219,7 +4223,7 @@ MonoBehaviour:
   cannonCamera: {fileID: 733354414}
   ammoUI: {fileID: 365503060}
   cannonCameraGO: {fileID: 733354410}
-  bulletPrefab: {fileID: 4560358676166116188, guid: 26b8e98d72343a841bc62c4dacfc9c28, type: 3}
+  bulletPrefab: {fileID: 4560358676166116188, guid: a9445dcfc3583de47a16a5c077ad6068, type: 3}
   bulletSpawnTransform: {fileID: 71583527}
   bulletForce: 100
   shoot_time: 1
@@ -6142,7 +6146,7 @@ MonoBehaviour:
   cannonCamera: {fileID: 1669238649}
   ammoUI: {fileID: 365503060}
   cannonCameraGO: {fileID: 1669238645}
-  bulletPrefab: {fileID: 4560358676166116188, guid: 26b8e98d72343a841bc62c4dacfc9c28, type: 3}
+  bulletPrefab: {fileID: 4560358676166116188, guid: a9445dcfc3583de47a16a5c077ad6068, type: 3}
   bulletSpawnTransform: {fileID: 677611952}
   bulletForce: 100
   shoot_time: 1
