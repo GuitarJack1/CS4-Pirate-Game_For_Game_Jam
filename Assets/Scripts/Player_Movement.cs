@@ -147,16 +147,7 @@ public class Player_Movement : MonoBehaviour
 
     }
 
-    void OnCollisionStay(Collision collision)
-    {
-        if (groundMask == (groundMask | (1 << collision.gameObject.layer)))
-        {
-            grounded = true;
-        }
-        if(waterMask == (waterMask | (1 << collision.gameObject.layer))){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().combined);
-        }
-    }
+  
 
     public void Grabbed()
     {
