@@ -2408,7 +2408,7 @@ PrefabInstance:
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: explosion
       value: 
-      objectReference: {fileID: 1379113070}
+      objectReference: {fileID: 4914716930404006884, guid: aed12c224fbc8704d8eaa07a52e88f44, type: 3}
     - target: {fileID: 2353566592965231323, guid: 9e947ac15c4982d429ae38741b85b838, type: 3}
       propertyPath: shoot_time
       value: 0.5
@@ -4893,7 +4893,7 @@ Transform:
   m_GameObject: {fileID: 1069534345}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 338, y: -5, z: -10.168152}
+  m_LocalPosition: {x: 338, y: -115, z: -10.168152}
   m_LocalScale: {x: 100, y: 1, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5144,6 +5144,157 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!1001 &1144947165
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 161959309259267210, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.74999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 161959309259267210, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.74999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 161959309259267210, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.74999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 161959309259267210, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 153.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 161959309259267210, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463736596977366, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463736596977366, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463736596977366, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463736596977366, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737034350135, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: _primaryLight
+      value: 
+      objectReference: {fileID: 1219047556}
+    - target: {fileID: 7515463737225351397, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_Name
+      value: LakesAndRiversScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737225351398, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737445522826, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737445522826, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_Importance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737445522826, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737445522826, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_IntensityMultiplier
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737701439802, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 610
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737701439802, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -79
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -128.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7515463737809576671, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7515463737034350135, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5351860863881277315, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    - {fileID: 2436777572735066074, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    - {fileID: 7515463737857630120, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    - {fileID: 7515463737860684284, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    - {fileID: 7515463737034350134, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f680af2b9d0ed4006be2e7778f465b4d, type: 3}
 --- !u!1 &1145984795
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,7 +6169,7 @@ Transform:
   m_GameObject: {fileID: 1411597075}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.781524, y: -200, z: -0.101011015}
+  m_LocalPosition: {x: -9.781524, y: -956, z: -0.101011015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7863,10 +8014,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 1985648819}
   m_PlayOnAwake: 1
-  m_LoopMode: 3
+  m_LoopMode: 1
   m_Method: 1
-  m_Duration: 53.422997
-  m_MaxSpeed: 100
+  m_Duration: 28.519213
+  m_MaxSpeed: 280.3
   m_EasingMode: 3
   m_AlignmentMode: 1
   m_ObjectForwardAxis: 0
@@ -8971,6 +9122,24 @@ MonoBehaviour:
       TangentIn:
         x: 0
         y: 0
+        z: -43.662327
+      TangentOut:
+        x: 0
+        y: 0
+        z: 43.662327
+      Rotation:
+        value:
+          x: 0.27454248
+          y: 0.8169447
+          z: 0.2061845
+          w: 0.46337426
+    - Position:
+        x: 553.918
+        y: 0.970371
+        z: -138.3
+      TangentIn:
+        x: 0
+        y: 0
         z: -12.509169
       TangentOut:
         x: 0
@@ -8978,10 +9147,64 @@ MonoBehaviour:
         z: 12.509169
       Rotation:
         value:
-          x: 0.33920577
-          y: 0.24549726
-          z: -0.049878985
-          w: 0.9067428
+          x: 0.0000008327897
+          y: 0.9164495
+          z: -0.00000036362363
+          w: -0.40015024
+    - Position:
+        x: 253.71805
+        y: 1
+        z: -360
+      TangentIn:
+        x: 0
+        y: 0
+        z: -92.19585
+      TangentOut:
+        x: 0
+        y: 0
+        z: 92.19585
+      Rotation:
+        value:
+          x: 0.00070922275
+          y: 0.7297527
+          z: -0.0026737629
+          w: -0.6837057
+    - Position:
+        x: -122.28195
+        y: 1.270371
+        z: -61
+      TangentIn:
+        x: 0
+        y: 0
+        z: -277.30847
+      TangentOut:
+        x: 0
+        y: 0
+        z: 277.30847
+      Rotation:
+        value:
+          x: -6.5324003e-15
+          y: 0.23759344
+          z: -2.6706725e-14
+          w: 0.9713647
+    - Position:
+        x: 0
+        y: 1
+        z: 0
+      TangentIn:
+        x: 0
+        y: 0
+        z: -277.30847
+      TangentOut:
+        x: 0
+        y: 0
+        z: 277.30847
+      Rotation:
+        value:
+          x: 0
+          y: 0.2375934
+          z: 0
+          w: 0.97136474
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -8990,6 +9213,14 @@ MonoBehaviour:
     - Mode: 0
       Tension: 0.5
     - Mode: 0
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
+      Tension: 0.5
+    - Mode: 2
       Tension: 0.5
     - Mode: 2
       Tension: 0.5
@@ -9504,3 +9735,4 @@ SceneRoots:
   - {fileID: 1580463806}
   - {fileID: 1069534349}
   - {fileID: 2083178526}
+  - {fileID: 1144947165}

@@ -287,7 +287,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBall: 0
+  bulletPrefab: {fileID: 6219344279308769453, guid: 4e1c62d1a52756145aa62358865d59ad, type: 3}
   explosionPrefab: {fileID: 4914716930404006884, guid: aed12c224fbc8704d8eaa07a52e88f44, type: 3}
+  shrapnelForce: 0
 --- !u!1 &5783444092726470720
 GameObject:
   m_ObjectHideFlags: 0
