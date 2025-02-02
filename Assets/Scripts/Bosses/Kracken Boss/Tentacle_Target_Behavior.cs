@@ -80,7 +80,7 @@ public class Tentacle_Target_Behavior : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && Time.time > throwTime + 1)
+        if (other.gameObject.CompareTag("Player") && Time.time > throwTime + 1 && other.gameObject.layer == 6)
         {
             other.gameObject.transform.parent = transform;
             other.gameObject.GetComponent<Player_Movement>().Grabbed();
