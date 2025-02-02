@@ -80,5 +80,6 @@ public class Boid : MonoBehaviour
             Vector3 awayFromFish = collision.gameObject.transform.position - transform.position;
             collision.gameObject.GetComponent<Player_Movement>().rb.AddForce(new Vector3(awayFromFish.x * 100f, 5f, awayFromFish.z * 100f), ForceMode.VelocityChange);
         }
+        
     }
 }
