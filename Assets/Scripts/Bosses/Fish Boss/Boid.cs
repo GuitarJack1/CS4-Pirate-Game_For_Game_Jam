@@ -75,5 +75,10 @@ public class Boid : MonoBehaviour
             GetComponentInChildren<RawImage>().color = deadColor;
             Destroy(collision.gameObject);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            Vector3 awayFromFish = collision.gameObject.transform.position - transform.position;
+            collision.gameObject.GetComponent<Player_Movement>().rb.AddForce(new Vector3(awayFromFish.x * 100f, 5f, awayFromFish.z * 100f), ForceMode.VelocityChange);
+        }
     }
 }
